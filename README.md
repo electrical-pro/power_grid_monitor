@@ -26,3 +26,5 @@ Resistors: https://s.click.aliexpress.com/e/_9AslPB
 Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
 
 Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
+
+My Oscilloscope: https://s.click.aliexpress.com/e/_Dm5XU21
