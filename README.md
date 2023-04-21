@@ -15,3 +15,14 @@ Display SSD1306 https://s.click.aliexpress.com/e/_Dn3VDrB
 Optocoupler PC817: https://s.click.aliexpress.com/e/_Dnbd5jn
 
 5V Power Supply: https://s.click.aliexpress.com/e/_DehH15T
+
+
+# Other usefull components for this project:
+
+Ceramic Capacitors: https://s.click.aliexpress.com/e/_ABg3GZ
+
+Resistors: https://s.click.aliexpress.com/e/_9AslPB
+
+Pin Header: https://s.click.aliexpress.com/e/_AUvLzT
+
+Female PCB Header: https://s.click.aliexpress.com/e/_AClQip
