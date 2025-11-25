@@ -522,6 +522,11 @@ void loop()
     //--------------- caclulate for all spans
     const uint32_t INTRPT_ARRAY_SIZE = sizeof(intrptArray) / sizeof(intrptArray[0]);
     const uint8_t spans = (INTRPT_ARRAY_SIZE / 2) - 2;
+
+    // Make a safe copy of the array, to make sure interrupt will not ruin it
+    uint32_t intrptArrayCopy[INTRPT_ARRAY_SIZE];
+    memcpy(intrptArrayCopy, intrptArray, sizeof(intrptArray));
+
     float freqSamples[spans]; // samples for spans
     uint8_t sampleCount = 0;
 
@@ -530,14 +535,15 @@ void loop()
       uint32_t end = INTRPT_ARRAY_SIZE - 1 - i;
       if (start >= end) break;
 
-      uint32_t timeSpanUs = intrptArray[end] - intrptArray[start];
+      uint32_t timeSpanUs = intrptArrayCopy[end] - intrptArrayCopy[start];
       uint32_t numCycles = end - start;
 
-      if (timeSpanUs > 15000 * numCycles && timeSpanUs < 25000 * numCycles) {
+      if (timeSpanUs > 16000 * numCycles && timeSpanUs < 25000 * numCycles) {
         freqSamples[sampleCount++] = float(numCycles * 1000000) / float(timeSpanUs);
       }
     }
     //--------------- caclulate for all spans done ---------
+
 
     // -------------- filter spans -------------------------
     float freqHzSingleMeasure = 0;
