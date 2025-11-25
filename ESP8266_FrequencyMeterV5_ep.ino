@@ -55,7 +55,6 @@ bool isr_done_flag = false;
 
 // debug statistic
 uint32_t false_int = 0;
-uint32_t false_int_last = 0;
 uint32_t falseInt_us = 0;
 uint32_t total_int = 0;
 uint32_t isr_time = 0;
@@ -133,8 +132,6 @@ void ICACHE_RAM_ATTR handleInterrupt()  //This is called on interrupt
   {
     // false interrupt, too soon
     false_int++;
-    time_t TimeNow = time(nullptr);
-    falseIntTime = ctime(&TimeNow);
     falseInt_us = micros() - micros_int;
   }
   total_int++;
@@ -512,6 +509,17 @@ void loop()
     }
   }
   // =========== Lost connection with Wi-Fi========================
+
+
+  // ================== track false ==============================
+  static uint32_t false_int_last = false_int;
+  if (false_int != false_int_last)
+  {
+    time_t TimeNow = time(nullptr);
+    falseIntTime = ctime(&TimeNow);
+    false_int_last = false_int;  // Update the last processed value
+  }
+  // ================== track false ==============================
 
 
   //===================================================================//
