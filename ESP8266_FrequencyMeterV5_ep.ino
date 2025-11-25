@@ -525,7 +525,10 @@ void loop()
 
     // Make a safe copy of the array, to make sure interrupt will not ruin it
     uint32_t intrptArrayCopy[INTRPT_ARRAY_SIZE];
+    // Disable interrupts only for the copy operation (very fast)
+    noInterrupts();
     memcpy(intrptArrayCopy, intrptArray, sizeof(intrptArray));
+    interrupts();
 
     float freqSamples[spans]; // samples for spans
     uint8_t sampleCount = 0;
