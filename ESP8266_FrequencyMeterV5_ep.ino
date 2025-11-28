@@ -512,7 +512,7 @@ void loop()
 
 
   // ================== track false ==============================
-  static uint32_t false_int_last = false_int;
+  static uint32_t false_int_last = 0;
   if (false_int != false_int_last)
   {
     time_t TimeNow = time(nullptr);
